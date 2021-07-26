@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Input from './components/input';
+import { useState, useEffect } from 'react';
 
 function App() {
+
+  // const inputDefault = {
+  //   query: "react",
+  //   qLength: 300,
+  // }
+
+  const [query, setQuery] = useState("react");
+
+  // const inputQuery = function(event) {
+  //   console.log(event.target.value)
+  // }
+
+  useEffect(() => {
+    console.log(query)
+  }, [query])
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Input data={inputDefault} /> */}
+      {/* <Input query={inputDefault.query} qlength={inputDefault.qLength}/> */}
+      {/* <input  onChange={inputQuery}/> */}
+      <input value={query}  onChange={(e)=> setQuery(e.target.value)}/>
     </div>
   );
 }
